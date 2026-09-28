@@ -37,3 +37,8 @@ crashlytics-build.properties
 # OS
 .DS_Store
 Thumbs.db
+
+# Blender asset generator
+Tools/BlenderAssetGen/renders/
+__pycache__/
+*.blend1

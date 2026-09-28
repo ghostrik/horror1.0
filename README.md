@@ -78,6 +78,27 @@ Assets/
   Audio/       синтезированные звуки (джингл, объявления, шаги, скример, эмбиент...)
 ```
 
+## 3D-модели (Blender)
+
+В `Assets/Models` лежат FBX, сделанные в **Blender 5.0.1**. Исходники каждой модели — в `Art/Blender/*.blend`
+(текстуры подключены относительными путями из `Assets/Textures`), скрипты-генераторы — в `Tools/BlenderAssetGen`.
+В сцены модели пока **не расставлены**: это отдельный следующий шаг.
+
+| Папка | Модели |
+|---|---|
+| `Characters` | **Merchandiser**: манекен-промоутер, скелет из 19 костей, анимации `Idle`, `Walk`, `Chase`, `Jumpscare`; LED-глаза с бегущей строкой, маска с улыбкой, челюсть отваливается и рвёт нарисованную улыбку |
+| `Props` (атриум) | ShoppingCart, Bench, FoodCourtTable, FoodCourtChair, PlanterDeadPalm, Fountain, TrashBin, WetFloorSign, InfoDesk, KioskCoffeeCounter, VendingMachine, PhotoBooth |
+| `Props` (гипермаркет) | ShelfGondola_Full, ShelfGondola_Looted, CheckoutCounter, FreezerGlassDoors, Pallet, CardboardBoxes, AntiTheftGate |
+| `Props` (подсобки) | StaffDoor, SecurityGrate, RollingShutter, Locker, JanitorCabinet, MopBucket, FuseBox, CeilingLamp, CeilingLamp_Broken, EmergencyBeacon, PASpeaker, CCTVCamera, ExitSign |
+| `Items` | Fuse, Powerbank, Phone |
+
+- Масштаб 1 единица = 1 метр, лицевая сторона смотрит по +Z в Unity, точка отсчёта — на полу.
+- Подвижные части — отдельные объекты с пивотом на петле или оси: створка `DoorLeaf`, дверцы шкафчиков `DoorL`/`DoorR`,
+  `FuseBoxDoor` и `Lever` у щитка, `ShutterCurtain` у рольставни.
+- Материалы в FBX названы так же, как в `Assets/Materials`, и в `.meta` уже подменены на материалы проекта.
+- Монстр импортируется как Generic-риг. Дубли анимаций называются `MerchandiserRig|Walk` и т.д.
+  Зацикливание (Loop Time) для Idle/Walk/Chase включается во вкладке Animation импортёра.
+
 ## Как расширять
 
 - **Новая зона**: собирай геометрию из кубов с материалами `M_Wall*` / `M_Floor*` — шейдер `WorldTriplanar`
